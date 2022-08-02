@@ -4,6 +4,28 @@ function Main() {
   // State for the challenge #3
   const [open, setOpen] = useState(false);
 
+  const [review, setReview] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [consistency, setConsistency] = useState(0);
+  const [colour, setColour] = useState(0);
+  const [logo, setLogo] = useState(0);
+  const [bestFeatures, setBestFeatures] = useState([]);
+  const [worstFeatures, setWorstFeatures] = useState([]);
+  const [timeSpent, setTimeSpent] = useState([]);
+
+  type Form = {
+    review: string;
+    email: string;
+    username: string;
+    consistency: number;
+    colour: number;
+    logo: number;
+    bestFeatures: string[];
+    worstFeatures: string[];
+    timeSpent: string[];
+  };
+
   const initialForm = {
     review: "",
     email: "",
@@ -14,7 +36,7 @@ function Main() {
     bestFeatures: [],
     worstFeatures: [],
     timeSpent: [],
-  }
+  };
 
   return (
     <main className="main">
@@ -23,20 +45,81 @@ function Main() {
         {/* answers should go here */}
       </section>
       <section className="main__form">
-        <form className="form">
+        <form
+          className="form"
+          onSubmit={(event) => {
+            event.preventDefault();
+
+            let survey = {
+              review,
+              email,
+              username,
+              consistency,
+              colour,
+              logo,
+              bestFeatures,
+              worstFeatures,
+              timeSpent,
+            };
+
+            setReview("");
+            setEmail("");
+            setUsername("");
+            setConsistency(0);
+            setColour(0);
+            setLogo(0);
+            setBestFeatures([]);
+            setWorstFeatures([]);
+            setTimeSpent([]);
+
+            console.log(survey);
+          }}
+        >
           <h2>Tell us what you think about your rubber duck!</h2>
 
           <label htmlFor="best-feature">
             What would you say that are the best features of your rubber duck?
           </label>
           <div className="form__best-feature checkbox-grid">
-            <input type="checkbox" id="best-feature"></input>
+            <input
+              type="checkbox"
+              id="best-feature"
+              name="bestFeatures"
+              value="colour"
+              onChange={(event) => {
+                setBestFeatures([...bestFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It's yellow!</span>
-            <input type="checkbox" id="best-feature"></input>
+            <input
+              type="checkbox"
+              id="best-feature"
+              name="bestFeatures"
+              value="sound"
+              onChange={(event) => {
+                setBestFeatures([...bestFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It squeaks!</span>
-            <input type="checkbox" id="best-feature"></input>
+            <input
+              type="checkbox"
+              id="best-feature"
+              name="bestFeatures"
+              value="logo"
+              onChange={(event) => {
+                setBestFeatures([...bestFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It has a logo!</span>
-            <input type="checkbox" id="best-feature"></input>
+            <input
+              type="checkbox"
+              id="best-feature"
+              name="bestFeatures"
+              value="size"
+              onChange={(event) => {
+                setBestFeatures([...bestFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It's big!</span>
           </div>
 
@@ -44,151 +127,243 @@ function Main() {
             What would you say that are the best features of your rubber duck?
           </label>
           <div className="form__worst-feature checkbox-grid">
-            <input type="checkbox" id="worst-feature"></input>
+            <input
+              type="checkbox"
+              id="worst-feature"
+              name="worstFeatures"
+              value="colour"
+              onChange={(event) => {
+                setWorstFeatures([...worstFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It's yellow!</span>
-            <input type="checkbox" id="worst-feature"></input>
+            <input
+              type="checkbox"
+              id="worst-feature"
+              name="worstFeatures"
+              value="sound"
+              onChange={(event) => {
+                setWorstFeatures([...worstFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It squeaks!</span>
-            <input type="checkbox" id="worst-feature"></input>
+            <input
+              type="checkbox"
+              id="worst-feature"
+              name="worstFeatures"
+              value="logo"
+              onChange={(event) => {
+                setWorstFeatures([...worstFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It has a logo!</span>
-            <input type="checkbox" id="worst-feature"></input>
+            <input
+              type="checkbox"
+              id="worst-feature"
+              name="worstFeatures"
+              value="size"
+              onChange={(event) => {
+                setWorstFeatures([...worstFeatures, event.target.value]);
+              }}
+            ></input>
             <span>It's big!</span>
           </div>
 
           <p>How do you rate your rubber duck consistency?</p>
-          <ul className='form__group radio'>
+          <ul className="form__group radio">
             <li>
               <input
-                id='consistency-1'
-                type='radio'
-                name='consistency'
-                value='1'
+                id="consistency-1"
+                type="radio"
+                name="consistency"
+                value="1"
+                onChange={(event) => {
+                  setConsistency(Number(event.target.value));
+                }}
               />
-              <label htmlFor='consistency-1'>1</label>
+              <label htmlFor="consistency-1">1</label>
             </li>
             <li>
               <input
-                id='consistency-2'
-                type='radio'
-                name='consistency'
-                value='2'
+                id="consistency-2"
+                type="radio"
+                name="consistency"
+                value="2"
+                onChange={(event) => {
+                  setConsistency(Number(event.target.value));
+                }}
               />
-              <label htmlFor='consistency-2'>2</label>
+              <label htmlFor="consistency-2">2</label>
             </li>
             <li>
               <input
-                id='consistency-3'
-                type='radio'
-                name='consistency'
-                value='3'
+                id="consistency-3"
+                type="radio"
+                name="consistency"
+                value="3"
+                onChange={(event) => {
+                  setConsistency(Number(event.target.value));
+                }}
               />
-              <label htmlFor='consistency-3'>3</label>
+              <label htmlFor="consistency-3">3</label>
             </li>
             <li>
               <input
-                id='consistency-4'
-                type='radio'
-                name='consistency'
-                value='4'
+                id="consistency-4"
+                type="radio"
+                name="consistency"
+                value="4"
+                onChange={(event) => {
+                  setConsistency(Number(event.target.value));
+                }}
               />
-              <label htmlFor='consistency-4'>4</label>
+              <label htmlFor="consistency-4">4</label>
             </li>
           </ul>
 
           <p>How do you rate your rubber duck colour?</p>
-          <ul className='form__group radio'>
+          <ul className="form__group radio">
             <li>
               <input
-                id='colour-1'
-                type='radio'
-                name='colour'
-                value='1'
+                id="colour-1"
+                type="radio"
+                name="colour"
+                value="1"
+                onChange={(event) => {
+                  setColour(Number(event.target.value));
+                }}
               />
-              <label htmlFor='colour-1'>1</label>
+              <label htmlFor="colour-1">1</label>
             </li>
             <li>
               <input
-                id='colour-2'
-                type='radio'
-                name='colour'
-                value='2'
+                id="colour-2"
+                type="radio"
+                name="colour"
+                value="2"
+                onChange={(event) => {
+                  setColour(Number(event.target.value));
+                }}
               />
-              <label htmlFor='colour-2'>2</label>
+              <label htmlFor="colour-2">2</label>
             </li>
             <li>
               <input
-                id='colour-3'
-                type='radio'
-                name='colour'
-                value='3'
+                id="colour-3"
+                type="radio"
+                name="colour"
+                value="3"
+                onChange={(event) => {
+                  setColour(Number(event.target.value));
+                }}
               />
-              <label htmlFor='colour-3'>3</label>
+              <label htmlFor="colour-3">3</label>
             </li>
             <li>
               <input
-                id='colour-4'
-                type='radio'
-                name='colour'
-                value='4'
+                id="colour-4"
+                type="radio"
+                name="colour"
+                value="4"
+                onChange={(event) => {
+                  setColour(Number(event.target.value));
+                }}
               />
-              <label htmlFor='colour-4'>4</label>
+              <label htmlFor="colour-4">4</label>
             </li>
           </ul>
 
           <p>How do you rate your rubber duck logo?</p>
-          <ul className='form__group radio'>
+          <ul className="form__group radio">
             <li>
               <input
-                id='logo-1'
-                type='radio'
-                name='logo'
-                value='1'
+                id="logo-1"
+                type="radio"
+                name="logo"
+                value="1"
+                onChange={(event) => {
+                  setLogo(Number(event.target.value));
+                }}
               />
-              <label htmlFor='logo-1'>1</label>
+              <label htmlFor="logo-1">1</label>
             </li>
             <li>
               <input
-                id='logo-2'
-                type='radio'
-                name='logo'
-                value='2'
+                id="logo-2"
+                type="radio"
+                name="logo"
+                value="2"
+                onChange={(event) => {
+                  setLogo(Number(event.target.value));
+                }}
               />
-              <label htmlFor='logo-2'>2</label>
+              <label htmlFor="logo-2">2</label>
             </li>
             <li>
               <input
-                id='logo-3'
-                type='radio'
-                name='logo'
-                value='3'
+                id="logo-3"
+                type="radio"
+                name="logo"
+                value="3"
+                onChange={(event) => {
+                  setLogo(Number(event.target.value));
+                }}
               />
-              <label htmlFor='logo-3'>3</label>
+              <label htmlFor="logo-3">3</label>
             </li>
             <li>
               <input
-                id='logo-4'
-                type='radio'
-                name='logo'
-                value='4'
+                id="logo-4"
+                type="radio"
+                name="logo"
+                value="4"
+                onChange={(event) => {
+                  setLogo(Number(event.target.value));
+                }}
               />
-              <label htmlFor='logo-4'>4</label>
+              <label htmlFor="logo-4">4</label>
             </li>
           </ul>
 
           <label htmlFor="spent-time">
-            What would you say that are the best features of your rubber duck?
+            How do you like to spend time with your rubber duck?
           </label>
           <div className="form__spent-time checkbox-grid">
-            <input type="checkbox" id="spent-time"></input>
-            <span>It's yellow!</span>
+            <input
+              type="checkbox"
+              id="spent-time"
+              onChange={(event) => {
+                setTimeSpent(null, timeSpent, event.target.value);
+              }}
+            ></input>
+            <span>Swimming</span>
 
-            <input type="checkbox" id="spent-time"></input>
-            <span>It squeaks!</span>
+            <input
+              type="checkbox"
+              id="spent-time"
+              onChange={(event) => {
+                setTimeSpent(null, timeSpent, event.target.value);
+              }}
+            ></input>
+            <span>Bathing</span>
 
-            <input type="checkbox" id="spent-time"></input>
-            <span>It has a logo!</span>
+            <input
+              type="checkbox"
+              id="spent-time"
+              onChange={(event) => {
+                setTimeSpent(null, timeSpent, event.target.value);
+              }}
+            ></input>
+            <span>Chatting</span>
 
-            <input type="checkbox" id="spent-time"></input>
-            <span>It's big!</span>
+            <input
+              type="checkbox"
+              id="spent-time"
+              onChange={(event) => {
+                setTimeSpent(null, timeSpent, event.target.value);
+              }}
+            ></input>
+            <span>I don't like to spend time with it</span>
           </div>
 
           <label htmlFor="comment">
@@ -199,10 +374,15 @@ function Main() {
           <label htmlFor="name">
             Put your name here (if your feel like it):
           </label>
-          <input type="text" id="name"></input>
+          <input type="text" id="name" onChange={event => 
+          {
+            setUsername(event.target.value);
+          }}></input>
 
           <label htmlFor="name">Leave us your email pretty please??</label>
-          <input type="email" id="name"></input>
+          <input type="email" id="name" onChange={event => {
+            setEmail(event.target.value);
+          }}></input>
 
           <button className="form__submit">Submit Survey!</button>
         </form>
@@ -212,3 +392,6 @@ function Main() {
 }
 
 export default Main;
+function setSpentTime(value: string) {
+  throw new Error("Function not implemented.");
+}

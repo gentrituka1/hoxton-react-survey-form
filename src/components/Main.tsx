@@ -26,17 +26,17 @@ function Main() {
     timeSpent: string[];
   };
 
-  const initialForm = {
-    review: "",
-    email: "",
-    username: "",
-    consistency: 0,
-    colour: 0,
-    logo: 0,
-    bestFeatures: [],
-    worstFeatures: [],
-    timeSpent: [],
-  };
+  // const initialForm = {
+  //   review: "",
+  //   email: "",
+  //   username: "",
+  //   consistency: 0,
+  //   colour: 0,
+  //   logo: 0,
+  //   bestFeatures: [],
+  //   worstFeatures: [],
+  //   timeSpent: [],
+  // };
 
   return (
     <main className="main">
@@ -71,23 +71,26 @@ function Main() {
             setBestFeatures([]);
             setWorstFeatures([]);
             setTimeSpent([]);
+            
+            
 
             console.log(survey);
           }}
         >
           <h2>Tell us what you think about your rubber duck!</h2>
 
-          <label htmlFor="best-feature">
+          <label htmlFor="best-feature" >
             What would you say that are the best features of your rubber duck?
           </label>
-          <div className="form__best-feature checkbox-grid">
+          <div className="form__best-feature checkbox-grid" >
             <input
               type="checkbox"
               id="best-feature"
               name="bestFeatures"
               value="colour"
+              required
               onChange={(event) => {
-                setBestFeatures([...bestFeatures, event.target.value]);
+                setBestFeatures(...bestFeatures, event.target.value);
               }}
             ></input>
             <span>It's yellow!</span>
@@ -96,8 +99,9 @@ function Main() {
               id="best-feature"
               name="bestFeatures"
               value="sound"
+              required
               onChange={(event) => {
-                setBestFeatures([...bestFeatures, event.target.value]);
+                setBestFeatures(...bestFeatures, event.target.value);
               }}
             ></input>
             <span>It squeaks!</span>
@@ -106,8 +110,9 @@ function Main() {
               id="best-feature"
               name="bestFeatures"
               value="logo"
+              required
               onChange={(event) => {
-                setBestFeatures([...bestFeatures, event.target.value]);
+                setBestFeatures(...bestFeatures, event.target.value);
               }}
             ></input>
             <span>It has a logo!</span>
@@ -116,8 +121,9 @@ function Main() {
               id="best-feature"
               name="bestFeatures"
               value="size"
+              required
               onChange={(event) => {
-                setBestFeatures([...bestFeatures, event.target.value]);
+                setBestFeatures(...bestFeatures, event.target.value);
               }}
             ></input>
             <span>It's big!</span>
@@ -333,7 +339,7 @@ function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(null, timeSpent, event.target.value);
+                setTimeSpent(...timeSpent, event.target.value);
               }}
             ></input>
             <span>Swimming</span>
@@ -342,7 +348,7 @@ function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(null, timeSpent, event.target.value);
+                setTimeSpent(...timeSpent, event.target.value);
               }}
             ></input>
             <span>Bathing</span>
@@ -351,7 +357,8 @@ function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(null, timeSpent, event.target.value);
+                const tuple = [...timeSpent, event.target.value];
+                setTimeSpent(...timeSpent, event.target.value);
               }}
             ></input>
             <span>Chatting</span>
@@ -360,7 +367,7 @@ function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(null, timeSpent, event.target.value);
+                setTimeSpent(...timeSpent, event.target.value);
               }}
             ></input>
             <span>I don't like to spend time with it</span>
@@ -369,20 +376,29 @@ function Main() {
           <label htmlFor="comment">
             What else do you got to say about your rubber duck?
           </label>
-          <textarea id="comment" rows={10}></textarea>
+          <textarea id="comment" rows={10} onChange={event => {
+            setReview(event.target.value);
+          }}></textarea>
 
           <label htmlFor="name">
             Put your name here (if your feel like it):
           </label>
-          <input type="text" id="name" onChange={event => 
-          {
-            setUsername(event.target.value);
-          }}></input>
+          <input
+            type="text"
+            id="name"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          ></input>
 
           <label htmlFor="name">Leave us your email pretty please??</label>
-          <input type="email" id="name" onChange={event => {
-            setEmail(event.target.value);
-          }}></input>
+          <input
+            type="email"
+            id="name"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          ></input>
 
           <button className="form__submit">Submit Survey!</button>
         </form>
@@ -391,7 +407,3 @@ function Main() {
   );
 }
 
-export default Main;
-function setSpentTime(value: string) {
-  throw new Error("Function not implemented.");
-}

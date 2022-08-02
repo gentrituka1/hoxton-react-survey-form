@@ -40,7 +40,8 @@ export function Main() {
 
   return (
 
-    <><form className="form">
+    <>
+    <form className="form">
 
       <h2>Answers List</h2>
       <ul>
@@ -177,7 +178,7 @@ export function Main() {
                 name="worstFeatures"
                 value="colour"
                 onChange={(event) => {
-                  setWorstFeatures([...worstFeatures, event.target.value]);
+                  setWorstFeatures(...worstFeatures, event.target.value);
                 } }
               ></input>
               <span>It's yellow!</span>
@@ -187,7 +188,7 @@ export function Main() {
                 name="worstFeatures"
                 value="sound"
                 onChange={(event) => {
-                  setWorstFeatures([...worstFeatures, event.target.value]);
+                  setWorstFeatures(...worstFeatures, event.target.value);
                 } }
               ></input>
               <span>It squeaks!</span>
@@ -197,7 +198,7 @@ export function Main() {
                 name="worstFeatures"
                 value="logo"
                 onChange={(event) => {
-                  setWorstFeatures([...worstFeatures, event.target.value]);
+                  setWorstFeatures(...worstFeatures, event.target.value);
                 } }
               ></input>
               <span>It has a logo!</span>
@@ -207,7 +208,7 @@ export function Main() {
                 name="worstFeatures"
                 value="size"
                 onChange={(event) => {
-                  setWorstFeatures([...worstFeatures, event.target.value]);
+                  setWorstFeatures(...worstFeatures, event.target.value);
                 } }
               ></input>
               <span>It's big!</span>
@@ -365,7 +366,7 @@ export function Main() {
                 type="checkbox"
                 id="spent-time"
                 onChange={(event) => {
-                  setTimeSpent([...timeSpent, event.target.value]);
+                  setTimeSpent(...timeSpent, event.target.value);
                 } }
               ></input>
               <span>Swimming</span>
@@ -374,7 +375,7 @@ export function Main() {
                 type="checkbox"
                 id="spent-time"
                 onChange={(event) => {
-                  setTimeSpent([...timeSpent, event.target.value]);
+                  setTimeSpent(...timeSpent, event.target.value);
                 } }
               ></input>
               <span>Bathing</span>
@@ -383,7 +384,7 @@ export function Main() {
                 type="checkbox"
                 id="spent-time"
                 onChange={(event) => {
-                  setTimeSpent([...timeSpent, event.target.value]);
+                  setTimeSpent(...timeSpent, event.target.value);
                 } }
               ></input>
               <span>Chatting</span>
@@ -392,7 +393,7 @@ export function Main() {
                 type="checkbox"
                 id="spent-time"
                 onChange={(event) => {
-                  setTimeSpent([...timeSpent, event.target.value]);
+                  setTimeSpent(...timeSpent, event.target.value);
                 } }
               ></input>
               <span>I don't like to spend time with it</span>

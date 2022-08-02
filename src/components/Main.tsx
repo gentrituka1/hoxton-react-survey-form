@@ -339,7 +339,7 @@ export function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(...timeSpent, event.target.value);
+                setTimeSpent([...timeSpent, event.target.value]);
               }}
             ></input>
             <span>Swimming</span>
@@ -348,7 +348,7 @@ export function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(...timeSpent, event.target.value);
+                setTimeSpent([...timeSpent, event.target.value]);
               }}
             ></input>
             <span>Bathing</span>
@@ -357,8 +357,7 @@ export function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                const tuple = [...timeSpent, event.target.value];
-                setTimeSpent(...timeSpent, event.target.value);
+                setTimeSpent([...timeSpent, event.target.value]);
               }}
             ></input>
             <span>Chatting</span>
@@ -367,7 +366,7 @@ export function Main() {
               type="checkbox"
               id="spent-time"
               onChange={(event) => {
-                setTimeSpent(...timeSpent, event.target.value);
+                setTimeSpent([...timeSpent, event.target.value]);
               }}
             ></input>
             <span>I don't like to spend time with it</span>

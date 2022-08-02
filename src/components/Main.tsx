@@ -191,6 +191,8 @@ function Main() {
 
           <label htmlFor="name">Leave us your email pretty please??</label>
           <input type="email" id="name"></input>
+
+          <button className="form__submit">Submit Survey!</button>
         </form>
       </section>
     </main>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Main() {
+export function Main() {
   // State for the challenge #3
   const [open, setOpen] = useState(false);
 

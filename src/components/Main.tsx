@@ -13,68 +13,180 @@ function Main() {
       <section className="main__form">
         <form className="form">
           <h2>Tell us what you think about your rubber duck!</h2>
-          
-          <label htmlFor="best-feature">What would you say that are the best features of your rubber duck?</label>
+
+          <label htmlFor="best-feature">
+            What would you say that are the best features of your rubber duck?
+          </label>
           <div className="form__best-feature checkbox-grid">
-            <input type="checkbox" id="best-feature"></input><span>It's yellow!</span>
-
-            <input type="checkbox" id="best-feature"></input><span>It squeaks!</span>
-
-            <input type="checkbox" id="best-feature"></input><span>It has a logo!</span>
-
-            <input type="checkbox" id="best-feature"></input><span>It's big!</span>
+            <input type="checkbox" id="best-feature"></input>
+            <span>It's yellow!</span>
+            <input type="checkbox" id="best-feature"></input>
+            <span>It squeaks!</span>
+            <input type="checkbox" id="best-feature"></input>
+            <span>It has a logo!</span>
+            <input type="checkbox" id="best-feature"></input>
+            <span>It's big!</span>
           </div>
 
-          <label htmlFor="worst-feature">What would you say that are the best features of your rubber duck?</label>
+          <label htmlFor="worst-feature">
+            What would you say that are the best features of your rubber duck?
+          </label>
           <div className="form__worst-feature checkbox-grid">
-            <input type="checkbox" id="worst-feature"></input><span>It's yellow!</span>
-
-            <input type="checkbox" id="worst-feature"></input><span>It squeaks!</span>
-
-            <input type="checkbox" id="worst-feature"></input><span>It has a logo!</span>
-
-            <input type="checkbox" id="worst-feature"></input><span>It's big!</span>
+            <input type="checkbox" id="worst-feature"></input>
+            <span>It's yellow!</span>
+            <input type="checkbox" id="worst-feature"></input>
+            <span>It squeaks!</span>
+            <input type="checkbox" id="worst-feature"></input>
+            <span>It has a logo!</span>
+            <input type="checkbox" id="worst-feature"></input>
+            <span>It's big!</span>
           </div>
 
-          <label htmlFor="consistency">How do your rate your rubber duck consistency?</label>
-          <div className="number-grid">
-            <input type="radio" id="consistency-1" value={1}></input>
-            <input type="radio" id="consistency-2"></input>
-            <input type="radio" id="consistency"></input>
-            <input type="radio" id="consistency"></input>
-          </div>
+          <p>How do you rate your rubber duck consistency?</p>
+          <ul className='form__group radio'>
+            <li>
+              <input
+                id='consistency-1'
+                type='radio'
+                name='consistency'
+                value='1'
+              />
+              <label htmlFor='consistency-1'>1</label>
+            </li>
+            <li>
+              <input
+                id='consistency-2'
+                type='radio'
+                name='consistency'
+                value='2'
+              />
+              <label htmlFor='consistency-2'>2</label>
+            </li>
+            <li>
+              <input
+                id='consistency-3'
+                type='radio'
+                name='consistency'
+                value='3'
+              />
+              <label htmlFor='consistency-3'>3</label>
+            </li>
+            <li>
+              <input
+                id='consistency-4'
+                type='radio'
+                name='consistency'
+                value='4'
+              />
+              <label htmlFor='consistency-4'>4</label>
+            </li>
+          </ul>
 
-          <label htmlFor="colour">How do you rate your rubber duck colour?</label>
-          <div className="number-grid">
-            <label id="colour">1</label>
-            <label id="colour">2</label>
-            <label id="colour">3</label>
-            <label id="colour">4</label>
-          </div>
+          <p>How do you rate your rubber duck colour?</p>
+          <ul className='form__group radio'>
+            <li>
+              <input
+                id='colour-1'
+                type='radio'
+                name='colour'
+                value='1'
+              />
+              <label htmlFor='colour-1'>1</label>
+            </li>
+            <li>
+              <input
+                id='colour-2'
+                type='radio'
+                name='colour'
+                value='2'
+              />
+              <label htmlFor='colour-2'>2</label>
+            </li>
+            <li>
+              <input
+                id='colour-3'
+                type='radio'
+                name='colour'
+                value='3'
+              />
+              <label htmlFor='colour-3'>3</label>
+            </li>
+            <li>
+              <input
+                id='colour-4'
+                type='radio'
+                name='colour'
+                value='4'
+              />
+              <label htmlFor='colour-4'>4</label>
+            </li>
+          </ul>
 
-          <label htmlFor="logo">How do your rate your rubber duck logo?</label>
-          <div className="number-grid">
-            <label id="logo">1</label>
-            <label id="logo">2</label>
-            <label id="logo">3</label>
-            <label id="logo">4</label>
-          </div>
+          <p>How do you rate your rubber duck logo?</p>
+          <ul className='form__group radio'>
+            <li>
+              <input
+                id='logo-1'
+                type='radio'
+                name='logo'
+                value='1'
+              />
+              <label htmlFor='logo-1'>1</label>
+            </li>
+            <li>
+              <input
+                id='logo-2'
+                type='radio'
+                name='logo'
+                value='2'
+              />
+              <label htmlFor='logo-2'>2</label>
+            </li>
+            <li>
+              <input
+                id='logo-3'
+                type='radio'
+                name='logo'
+                value='3'
+              />
+              <label htmlFor='logo-3'>3</label>
+            </li>
+            <li>
+              <input
+                id='logo-4'
+                type='radio'
+                name='logo'
+                value='4'
+              />
+              <label htmlFor='logo-4'>4</label>
+            </li>
+          </ul>
 
-          <label htmlFor="spent-time">What would you say that are the best features of your rubber duck?</label>
+          <label htmlFor="spent-time">
+            What would you say that are the best features of your rubber duck?
+          </label>
           <div className="form__spent-time checkbox-grid">
-            <input type="checkbox" id="spent-time"></input><span>It's yellow!</span>
+            <input type="checkbox" id="spent-time"></input>
+            <span>It's yellow!</span>
 
-            <input type="checkbox" id="spent-time"></input><span>It squeaks!</span>
+            <input type="checkbox" id="spent-time"></input>
+            <span>It squeaks!</span>
 
-            <input type="checkbox" id="spent-time"></input><span>It has a logo!</span>
+            <input type="checkbox" id="spent-time"></input>
+            <span>It has a logo!</span>
 
-            <input type="checkbox" id="spent-time"></input><span>It's big!</span>
+            <input type="checkbox" id="spent-time"></input>
+            <span>It's big!</span>
           </div>
 
-          <label htmlFor="comment">What else do you got to say about your rubber duck?</label>
+          <label htmlFor="comment">
+            What else do you got to say about your rubber duck?
+          </label>
           <textarea id="comment" rows={10}></textarea>
 
-          <label htmlFor="name">Put your name here (if your feel like it):</label>
+          <label htmlFor="name">
+            Put your name here (if your feel like it):
+          </label>
           <input type="text" id="name"></input>
 
           <label htmlFor="name">Leave us your email pretty please??</label>

@@ -4,6 +4,18 @@ function Main() {
   // State for the challenge #3
   const [open, setOpen] = useState(false);
 
+  const initialForm = {
+    review: "",
+    email: "",
+    username: "",
+    consistency: 0,
+    colour: 0,
+    logo: 0,
+    bestFeatures: [],
+    worstFeatures: [],
+    timeSpent: [],
+  }
+
   return (
     <main className="main">
       <section className={`main__list ${open ? "open" : ""}`}>
